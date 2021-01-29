@@ -1,0 +1,10 @@
+name: "github-actions-dashboard"
+description: "Generates dashboard containing Github Actions runs statistics"
+inputs:
+  repository:
+    description: "Repository name with owner"
+    required: true
+    default: "${{ github.repository }}"
+runs:
+  using: "node12"
+  main: "index.js"
