@@ -9,6 +9,10 @@ inputs:
     description: "Cache dir for fetched workflow runs, jobs and timings"
     required: false
     default: ""
+  token:
+    description: "Auth token used for fetching data using Github API"
+    required: true
+    default: "${{ github.token }}"
 runs:
   using: "node12"
   main: "dist/index.js"

@@ -12,3 +12,4 @@ jobs:
         uses: wendigo/github-actions-dashboard@master
         with:
           repository: wendigo/chrome-reactive-kotlin
+          token: "${{ secrets.accessToken }}"
