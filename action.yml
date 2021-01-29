@@ -8,7 +8,7 @@ inputs:
   cachedir:
     description: "Cache dir for fetched workflow runs, jobs and timings"
     required: false
-    default: ""
+    default: "."
   token:
     description: "Auth token used for fetching data using Github API"
     required: true

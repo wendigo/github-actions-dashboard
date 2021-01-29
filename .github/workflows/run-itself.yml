@@ -11,5 +11,5 @@ jobs:
       - name: Generate runs dashboard
         uses: wendigo/github-actions-dashboard@master
         with:
-          repository: wendigo/chrome-reactive-kotlin
+          repository: trinodb/trino
           token: "${{ secrets.accessToken }}"
