@@ -5,6 +5,10 @@ inputs:
     description: "Repository name with owner"
     required: true
     default: "${{ github.repository }}"
+  cachedir:
+    description: "Cache dir for fetched workflow runs, jobs and timings"
+    required: false
+    default: ""
 runs:
   using: "node12"
   main: "dist/index.js"
