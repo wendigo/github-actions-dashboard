@@ -1,0 +1,47 @@
+Workflow <a href="https://github.com/{{ repository }}/actions?query=workflow:{{ workflow.name }}">{{ workflow.name }}</a> stats for <a href="https://github.com/{{ repository }}">{{ repository }}</a>:
+<table border="1">
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>Run Id</th>
+        <th>Conclusion</th>
+        <th>Queued</th>
+        <th>Completed</th>
+        <th>Success</th>
+        <th>%</th>
+        <th>Failure</th>
+        <th>%</th>
+        <th>Cancelled</th>
+        <th>%</th>
+        <th>Skipped</th>
+        <th>%</th>
+        <th>Jobs</th>
+    </tr>
+    </thead>
+    <tbody>
+    {{#each runStats}}
+    <tr>
+        <td>{{@key}}</td>
+        <td>{{this.runId}}</td>
+        <td>{{this.conclusion}}</td>
+        <td>{{ this.queuedTime }}</td>
+        <td>{{ this.completionTime }}</td>
+        <td>{{this.conclusionsStats.success}}</td>
+        <td>{{ratio this.conclusionsStats.success this.conclusionsStats.count }}%</td>
+        <td>{{this.conclusionsStats.failure}}</td>
+        <td>{{ratio this.conclusionsStats.failure this.conclusionsStats.count }}%</td>
+        <td>{{this.conclusionsStats.cancelled}}</td>
+        <td>{{ratio this.conclusionsStats.cancelled this.conclusionsStats.count }}%</td>
+        <td>{{this.conclusionsStats.skipped}}</td>
+        <td>{{ratio this.conclusionsStats.skipped this.conclusionsStats.count }}%</td>
+        <td>
+            <ul>
+                {{#each this.conclusions}}
+                <li>{{@key}} = {{this}}</li>
+                {{/each}}
+            </ul>
+        </td>
+    </td>
+    {{/each}}
+    </tbody>
+</table>

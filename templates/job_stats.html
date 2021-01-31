@@ -1,0 +1,28 @@
+Job <b>{{ name }}</b> stats
+
+<table border="1">
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>Run Id</th>
+        <th>Commit</th>
+        <th>Conclusion</th>
+        <th>Queued</th>
+        <th>Started at</th>
+        <th>Completed in</th>
+    </tr>
+    </thead>
+    <tbody>
+    {{#each runs}}
+    <tr>
+        <td>{{@key}}</td>
+        <td>{{this.run.id}}</td>
+        <td>{{this.run.head_commit.message}}</td>
+        <td>{{this.job.conclusion}}</td>
+        <td>{{durationBetween this.run.created_at this.job.started_at}}</td>
+        <td>{{this.job.started_at}}</td>
+        <td>{{durationBetween this.job.started_at this.job.completed_at}}</td>
+    </tr>
+    {{/each}}
+    </tbody>
+</table>

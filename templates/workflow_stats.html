@@ -1,0 +1,34 @@
+Workflow <a href="https://github.com/{{ repository }}/actions?query=workflow:{{ workflow.name }}">{{ workflow.name }}</a> stats for <a href="https://github.com/{{ repository }}">{{ repository }}</a>:
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>Job name</th>
+            <th>Total</th>
+            <th>Success</th>
+            <th>%</th>
+            <th>Failure</th>
+            <th>%</th>
+            <th>Cancelled</th>
+            <th>%</th>
+            <th>Skipped</th>
+            <th>%</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each jobsConclusions}}
+        <tr>
+            <td>{{@key}}</td>
+            <td>{{ this.count }}</td>
+            <td>{{ this.success }}</td>
+            <td>{{ ratio this.success this.count }}%</td>
+            <td>{{ this.failure }}</td>
+            <td>{{ ratio this.failure this.count }}%</td>
+            <td>{{ this.cancelled }}</td>
+            <td>{{ ratio this.cancelled this.count }}%</td>
+            <td>{{ this.skipped }}</td>
+            <td>{{ ratio this.skipped this.count }}%</td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>

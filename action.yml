@@ -8,11 +8,15 @@ inputs:
   cachedir:
     description: "Cache dir for fetched workflow runs, jobs and timings"
     required: false
-    default: "."
+    default: "./cache"
   token:
     description: "Auth token used for fetching data using Github API"
-    required: true
+    required: false
     default: "${{ github.token }}"
+  outputDir:
+    description: "Output directory for generated report"
+    required: false
+    default: "./output"
 runs:
   using: "node12"
   main: "dist/index.js"
